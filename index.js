@@ -54,7 +54,7 @@ app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
-  res.status(40s).send('Forbidden');
+  res.status(402).send('Forbidden');
 });
 
 // There will be a test page available on the /test path of your server url
