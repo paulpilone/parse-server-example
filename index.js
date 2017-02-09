@@ -32,10 +32,10 @@ var api = new ParseServer({
   emailAdapter: {
     module: 'parse-server-amazon-ses-adapter',
     options: {
-      from: 'no-reply@ihomeworkapp.com',
-      accessKeyId: process.env.S3_ACCESS_KEY,
-      secretAccessKey: process.env.S3_SECRET_KEY,
-      region: "us-east-1"
+      from: process.env.SES_FROM_ADDRESS || 'no-reply@localhost',
+      accessKeyId: process.env.SES_ACCESS_KEY,
+      secretAccessKey: process.env.SES_SECRET_KEY,
+      region: process.env.SES_REGION || "us-east-1"
     }
   }
 });
