@@ -27,7 +27,16 @@ var api = new ParseServer({
     process.env.S3_ACCESS_KEY,
     process.env.S3_SECRET_KEY,
     process.env.S3_BUCKET
-  ) 
+  ),
+  emailAdapter: {
+    module: 'parse-server-simple-ses-adapter',
+    options: {
+      fromAddress: 'no-reply@ihomeworkapp.com',
+      apiKey: process.env.S3_ACCESS_KEY,
+      apiSecret: process.env.S3_SECRET_KEY,
+      domain: 'ihomeworkapp.com'
+    }
+  }
 });
 
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
@@ -45,7 +54,7 @@ app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
-  res.status(200).send('I dream of being a website.  Please star the parse-server repo on GitHub!');
+  res.status(40s).send('Forbidden');
 });
 
 // There will be a test page available on the /test path of your server url
